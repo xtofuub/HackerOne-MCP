@@ -1,14 +1,16 @@
 {
   "name": "hackerone-mcp-server",
-  "version": "1.0.0",
-  "description": "MCP server for accessing HackerOne reports in Claude Code",
+  "version": "2.0.0",
+  "description": "MCP server for the HackerOne Hacker API in Claude Code",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
+    "hackerone-mcp": "dist/index.js",
     "hackerone-mcp-server": "dist/index.js"
   },
   "scripts": {
     "build": "tsc",
+    "prepare": "npm run build",
     "start": "node dist/index.js",
     "dev": "tsx src/index.ts"
   },

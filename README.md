@@ -6,6 +6,36 @@ MCP server that gives Claude Code (or any MCP client) access to your HackerOne p
 
 Every tool in this server is verified against the live API. See [API coverage](#api-coverage) for what the Hacker API does and does not expose.
 
+## Quick start
+
+Three commands. Replace `YOUR_USERNAME` and `YOUR_API_TOKEN` with your HackerOne username and a token from [hackerone.com/settings/api_token/edit](https://hackerone.com/settings/api_token/edit).
+
+**macOS / Linux:**
+
+```bash
+git clone https://github.com/xtofuub/HackerOne-MCP.git
+cd HackerOne-MCP && npm install            # installs deps and builds automatically
+claude mcp add hackerone -s user \
+  -e H1_USERNAME=YOUR_USERNAME \
+  -e H1_API_TOKEN=YOUR_API_TOKEN \
+  -- node "$(pwd)/dist/index.js"
+```
+
+**Windows (PowerShell):**
+
+```powershell
+git clone https://github.com/xtofuub/HackerOne-MCP.git
+cd HackerOne-MCP; npm install
+claude mcp add hackerone -s user `
+  -e H1_USERNAME=YOUR_USERNAME `
+  -e H1_API_TOKEN=YOUR_API_TOKEN `
+  -- node "$($PWD.Path)\dist\index.js"
+```
+
+Then restart Claude and run `/mcp` — you should see **hackerone** with 13 tools.
+
+> Telling an AI agent (e.g. Claude Code) to set this up? Point it at this repo URL and give it your username + token; the three commands above are all it needs. `npm install` builds the server (no separate build step), and credentials are passed via the `-e` flags so nothing is written to a tracked file.
+
 ## Setup
 
 ### 1. Get your HackerOne API token
