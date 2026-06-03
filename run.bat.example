@@ -1,0 +1,6 @@
+@echo off
+REM Copy to run.bat and fill in your real credentials, then run it.
+REM run.bat is gitignored so your token never gets committed.
+set H1_USERNAME=your-username
+set H1_API_TOKEN=your-api-token
+node "%~dp0dist\index.js"
